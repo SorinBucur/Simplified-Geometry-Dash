@@ -1,0 +1,44 @@
+ELEMENTE DE GRAFICA PE CALCULATOR
+TEMA 1
+BUCUR SORIN 333CB
+
+1. Cerinta
+	Cu ajutorul framework-ului oferit la laborator, trebuie sa realizati un joc de tipul Geometry Dash.
+
+2. 
+
+	2.1 Interfata Grafica
+
+		Butoane:
+			[SPACE]	- apasati tasta SPACE pentru ca playerul sa sara
+			[ESC] - apasati ESC pentru a iesi din joc
+
+3. Implementare
+	Tema a fost realizata in Microsoft Visual Studio 2012, Windows 7.
+	In afata de librariile din laborator am folosit <mmsystem.h> pentru a reda sunete. Am pornit de la scheletul
+oferit in laboratorul 2 la care am adaugat clasele Player(pentru a crea playerul propriu zis si pentru diferite metode), 
+Plan(pentru crearea platformei), Flag(pentru checkpointuri), Obstacle si Obstacle1(pentru obstacolele de tip triunghi si
+dreptunghi). 
+	Jucatorul si planul sunt fixe, iar obstacolele si checkpointurile se deplaseaza de dreapta la stanga. Parcurg
+mereu vectorii de obstacole, iar in cazul unei coliziuni playerul revine la ultimul checkpoint(pastrez ultimul checkpoint
+pe prima pozitie din vector; cand am trecut de un checkpoint se sterge cel precedent deoarece o sa ma intorc la cel actual).
+Pentru a ma intoarce la checkpoint calculez diferenta dintre punctul curent si ultimul checkpoint traversat. 
+	La fiecare pas in onIdle urca si coboara in conditiile in care respecta limitele jump_height si base_height. Tot odata cand
+sare de pe un obstacol de tip dreptunghi acesta sare tot cu inaltime jump_height insa de la noua inaltime.
+	Dupa contacul cu un obstacol, jocul se continua prin apasarea tastei SPACE, iar la final jocul se opreste.
+	Am creat 2 contexte separate, cel de jos cu jocul propriu-zis iar cel de sus in care tin scorul si numarul de vieti + un mesaj
+in cazul castigarii sau pierderii jocului. In cazul in care scorul este 6 se afiseaza mesajul "WINNER" iar cand numarul de vieti
+este 0 se afiseaza mesajul "GAME OVER!".
+
+4. Testare
+	Testarea se face astfel: Build Solution -> Start Debugging
+
+6. Continutul Arhivei
+	Toate fisierele din laboratorul 2 + fisier audio "sound.wav" + Player.h + Obstacle.h + Obstacle1.h + Plan.h + Flag.h + README
+
+7. Functionalitati
+	Functionalitati Standard ca in enunt, mai putin auto-propulsarea la aterizarea pe un cerc.
+	Redare sunet atunci cand sare, coliziune cu un obstacol, traversare checkpoint, final de joc.
+
+8. Nota
+	Am pastrat numele proiectului "lab2" datorita intampinarii unor probleme de rulare in cazul editarii numelui.
